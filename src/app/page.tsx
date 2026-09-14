@@ -30,10 +30,9 @@ export default function Home() {
 
       <iframe
         src="https://www.youtube.com/embed/7nQ2oiVqKHw?autoplay=1"
-        frameBorder="0"
-        className="hideobj"
         title="Background music"
-        allow="autoplay"
+        allow="autoplay; encrypted-media"
+        className="hidden"
       />
 
       {/* ===================================================== */}
@@ -175,15 +174,16 @@ export default function Home() {
                   Bouabdelli Maroua Amira&apos;s profile
                 </p>
 
-                <p className="flex shrink-0 items-center gap-1 text-xs text-[#2C8925] sm:text-sm">
+                <div className="flex shrink-0 items-end gap-1 text-xs text-[#2C8925] sm:text-sm">
                   <Image
                     src="/icons/green_person.svg"
                     alt=""
                     width={10}
                     height={10}
+                    className="animate-[blink_1s_steps(1)_infinite]"
                   />
-                  ONLINE!
-                </p>
+                  <div className="translate-y-1.25">ONLINE!</div>
+                </div>
               </div>
 
               <div className="flex w-full flex-col items-center gap-5 rounded-md border border-[#001170]/56 bg-white/56 px-4 py-8 shadow-[0_0px_7px_0.1px_#000] sm:flex-row sm:items-center sm:px-5 sm:py-8">
