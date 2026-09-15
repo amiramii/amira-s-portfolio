@@ -1,8 +1,8 @@
 "use client";
 
-
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 type Experience = {
   period: string;
@@ -124,11 +124,7 @@ const cardStyles = [
   },
 ];
 
-function Tape({
-  className = "",
-}: {
-  className?: string;
-}) {
+function Tape({ className = "" }: { className?: string }) {
   return (
     <div
       className={`pointer-events-none absolute h-5 w-20 rotate-[-5deg] bg-[#e8b9c8]/75 shadow-sm ${className}`}
@@ -163,7 +159,7 @@ function ExperienceCard({
 
   return (
     <article className={`experience-card relative ${style.rotation}`}>
-      {/* YEAR */}
+      {/* YEAR LABEL */}
       <div className="absolute -left-[10px] top-5 z-20 hidden -translate-x-full items-center gap-2 sm:flex">
         <span
           className="
@@ -203,15 +199,30 @@ function ExperienceCard({
         {/* TAPE */}
         <Tape className={`-top-3 right-12 ${style.tape}`} />
 
-        {/* TOP EDGE */}
+        {/* TOP HIGHLIGHT */}
         <div className="absolute left-0 right-0 top-0 h-[3px] bg-white/40" />
 
         <div className="flex flex-col gap-3">
           {/* HEADER */}
           <div className="flex items-start gap-3">
-            {/* FOLDER */}
-            <div className="shrink-0 pt-1">
-              
+            {/* SMALL FOLDER / PAPER ICON */}
+            <div
+              className="
+                mt-1
+                flex
+                h-9
+                w-9
+                shrink-0
+                items-center
+                justify-center
+                rounded-[4px]
+                border
+                border-[#b79f73]
+                bg-[#f9e8ad]
+                shadow-[1px_2px_3px_rgba(0,0,0,0.15)]
+              "
+            >
+              <span className="text-lg">📁</span>
             </div>
 
             <div className="min-w-0 flex-1">
@@ -332,7 +343,7 @@ function ExperienceCard({
             )}
         </div>
 
-        {/* WHAT I DID NOTE */}
+        {/* WHAT I DID NOTE - DESKTOP */}
         <div
           className={`
             absolute
@@ -350,7 +361,6 @@ function ExperienceCard({
             lg:block
           `}
         >
-          {/* NOTE TAPE */}
           <div className="absolute -top-3 left-7 h-4 w-16 rotate-[-4deg] bg-white/35" />
 
           <h4
@@ -384,7 +394,7 @@ function ExperienceCard({
           </ul>
         </div>
 
-        {/* MOBILE WHAT I DID */}
+        {/* WHAT I DID NOTE - MOBILE */}
         <div
           className={`
             mt-3
@@ -514,7 +524,7 @@ export default function ExperienceDialog({
         }
       }}
     >
-      {/* WINDOWS XP WINDOW */}
+      {/* XP WINDOW */}
       <div
         ref={windowRef}
         className="
@@ -525,58 +535,80 @@ export default function ExperienceDialog({
           max-w-[900px]
           flex-col
           overflow-hidden
+          rounded-[2px]
           border-2
           border-[#0068d7]
           bg-[#ece9d8]
           shadow-[4px_5px_12px_rgba(0,0,0,0.45)]
         "
       >
+        {/* ========================================================= */}
         {/* XP TITLE BAR */}
+        {/* ========================================================= */}
+
         <div
           className="
             flex
-            h-[44px]
+            h-[38px]
             shrink-0
             items-center
             justify-between
+            border-b
+            border-[#174b9c]
             bg-gradient-to-b
-            from-[#4b8bea]
-            via-[#2869dc]
-            to-[#1760d8]
-            px-2
+            from-[#5b9bf5]
+            via-[#3478df]
+            to-[#1b5fc9]
+            px-1.5
+            shadow-[inset_0_1px_1px_rgba(255,255,255,0.45)]
+            sm:h-[40px]
           "
         >
+          {/* LEFT SIDE */}
           <div className="flex min-w-0 items-center gap-2">
+            {/* ACTUAL WINDOW ICON */}
             <div
               className="
                 flex
-                h-7
-                w-7
+                h-[27px]
+                w-[27px]
                 shrink-0
                 items-center
                 justify-center
                 overflow-hidden
                 rounded-[3px]
+                
               "
             >
-              
+              <Image
+                src="/icons/earth1.png"
+                alt=""
+                width={22}
+                height={22}
+                className="h-[22px] w-[22px] object-contain"
+              />
             </div>
 
+            {/* TITLE */}
             <span
               className="
                 truncate
-                text-sm
+                font-[Trebuchet_MS,sans-serif]
+                text-[13px]
                 font-bold
+                tracking-[0.1px]
                 text-white
-                drop-shadow-[1px_1px_1px_rgba(0,0,0,0.45)]
-                sm:text-base
+                drop-shadow-[1px_1px_1px_rgba(0,0,0,0.35)]
+                sm:text-[14px]
               "
             >
               My Experience
             </span>
           </div>
 
+          {/* XP WINDOW CONTROLS */}
           <div className="flex shrink-0 items-center gap-1">
+            {/* MINIMIZE */}
             <button
               type="button"
               onClick={onClose}
@@ -591,17 +623,22 @@ export default function ExperienceDialog({
                 rounded-[2px]
                 border
                 border-[#17458e]
-                bg-[#3d7de0]
-                text-[13px]
+                bg-gradient-to-b
+                from-[#72a9f3]
+                to-[#3b78d5]
+                text-[14px]
                 font-bold
+                leading-none
                 text-white
                 shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]
-                hover:bg-[#5590ed]
+                hover:brightness-110
+                active:translate-y-[1px]
               "
             >
-              −
+              <span className="relative -top-[1px]">−</span>
             </button>
 
+            {/* CLOSE */}
             <button
               type="button"
               onClick={onClose}
@@ -615,35 +652,44 @@ export default function ExperienceDialog({
                 justify-center
                 rounded-[2px]
                 border
-                border-[#17458e]
-                bg-[#e75b52]
-                text-[13px]
+                border-[#8b2d25]
+                bg-gradient-to-b
+                from-[#f4776e]
+                to-[#d8443b]
+                text-[14px]
                 font-bold
+                leading-none
                 text-white
                 shadow-[inset_0_1px_1px_rgba(255,255,255,0.45)]
-                hover:bg-[#f06e65]
+                hover:brightness-110
+                active:translate-y-[1px]
               "
             >
-              ×
+              <span className="relative -top-[1px]">×</span>
             </button>
           </div>
         </div>
 
+        {/* ========================================================= */}
         {/* XP MENU BAR */}
+        {/* ========================================================= */}
+
         <div
           className="
             flex
             h-[27px]
             shrink-0
             items-center
-            gap-6
+            gap-5
             border-b
             border-[#aaa]
             bg-[#d4d0c8]
-            px-4
-            text-xs
+            px-3
+            text-[11px]
             text-[#222]
-            sm:text-sm
+            sm:gap-6
+            sm:px-4
+            sm:text-xs
           "
         >
           <button
@@ -675,7 +721,10 @@ export default function ExperienceDialog({
           </button>
         </div>
 
-        {/* SCROLLABLE SCRAPBOOK AREA */}
+        {/* ========================================================= */}
+        {/* SCRAPBOOK CONTENT */}
+        {/* ========================================================= */}
+
         <div
           className="
             min-h-0
@@ -687,22 +736,12 @@ export default function ExperienceDialog({
             [&::-webkit-scrollbar]:hidden
           "
         >
-          {/*
-            The background belongs to this content wrapper.
-            Since this wrapper grows with the content,
-            the paper background covers everything while scrolling.
-          */}
-          <div
-            className="
-              relative
-              min-h-full
-              bg-[#f6dede]
-            "
-          >
+          <div className="relative min-h-full bg-[#f6dede]">
             {/* SOFT OVERLAY */}
             <div className="pointer-events-none absolute inset-0 bg-[#f6dede]/10" />
 
             {/* DECORATIONS */}
+
             <Star className="left-[7%] top-10 text-3xl">
               ★
             </Star>
@@ -719,11 +758,11 @@ export default function ExperienceDialog({
               ✧
             </Star>
 
-            <Star className="left-[5%] bottom-[15%] text-5xl">
+            <Star className="bottom-[15%] left-[5%] text-5xl">
               ★
             </Star>
 
-            <Star className="right-[12%] bottom-[10%] text-3xl text-[#2877cf]">
+            <Star className="bottom-[10%] right-[12%] text-3xl text-[#2877cf]">
               ☆
             </Star>
 
@@ -740,7 +779,10 @@ export default function ExperienceDialog({
                 sm:py-7
               "
             >
+              {/* ================================================= */}
               {/* TITLE */}
+              {/* ================================================= */}
+
               <div className="experience-title relative mb-8">
                 {/* TAPE */}
                 <div
@@ -827,7 +869,10 @@ export default function ExperienceDialog({
                 </div>
               </div>
 
+              {/* ================================================= */}
               {/* TIMELINE */}
+              {/* ================================================= */}
+
               <div className="relative">
                 {/* VERTICAL LINE */}
                 <div
@@ -886,12 +931,15 @@ export default function ExperienceDialog({
                 </div>
               </div>
 
+              {/* ================================================= */}
               {/* BOTTOM NOTE */}
+              {/* ================================================= */}
+
               <div
                 className="
                   relative
-                  mt-8
                   ml-4
+                  mt-8
                   w-fit
                   max-w-[340px]
                   rotate-[-3deg]
