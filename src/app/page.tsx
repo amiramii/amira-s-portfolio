@@ -93,7 +93,6 @@ export default function Home() {
         }
 
         const data = await response.json();
-
         setVisitorCount(data.count);
       } catch (error) {
         console.error("Visitor counter:", error);
@@ -161,7 +160,6 @@ export default function Home() {
 
   const WindowCard = ({
     window,
-    duplicate = false,
   }: {
     window: WindowItem;
     duplicate?: boolean;
@@ -191,11 +189,8 @@ export default function Home() {
         hover:bg-white/[0.18]
         hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.7),0_12px_30px_rgba(0,50,150,0.25)]
         active:translate-y-[1px]
-
         sm:min-w-[46vw]
-
         lg:min-w-[300px]
-
         xl:min-w-[320px]
       "
     >
@@ -282,15 +277,61 @@ export default function Home() {
           HEADER
       ===================================================== */}
 
-      <header className="shrink-0 px-4 pt-4 sm:px-8 sm:pt-6 md:px-12 lg:px-24 lg:pt-8 xl:px-60 xl:pt-4 2xl:px-60">
-        <nav className="flex w-full flex-col items-center">
+      <header
+        className="
+          shrink-0
+          px-4
+          pt-4
+          sm:px-8
+          sm:pt-6
+          md:px-12
+          lg:px-24
+          lg:pt-8
+          xl:px-60
+          xl:pt-4
+          2xl:px-60
+        "
+      >
+        <nav
+          className="
+            xp-floating
+            flex
+            w-full
+            flex-col
+            items-center
+            rounded-md
+            shadow-[0_4px_10px_rgba(0,0,0,0.28)]
+          "
+        >
           {/* Welcome */}
-          <div className="w-full rounded-t-md bg-[#175de8]/35 p-1 px-3 pt-3 text-xs shadow-[inset_0_3px_5px_-2px_#FFF] sm:text-sm">
+          <div
+            className="
+              w-full
+              rounded-t-md
+              bg-[#175de8]/35
+              p-1
+              px-3
+              pt-3
+              text-xs
+              shadow-[inset_0_3px_5px_-2px_#FFF]
+              sm:text-sm
+            "
+          >
             Welcome to my portfolio &lt;3
           </div>
 
           {/* Logo */}
-          <div className="flex w-full items-center bg-[#0050EE]/65 p-1 px-3">
+          <div
+            className="
+              flex
+              w-full
+              items-center
+              bg-[#0050EE]/65
+              p-1
+              px-3
+              shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)]
+            "
+          >
             <Image
               src="/icons/hey.png"
               alt=""
@@ -311,7 +352,25 @@ export default function Home() {
           </div>
 
           {/* Navigation */}
-          <div className="flex w-full flex-wrap items-center gap-x-4 gap-y-1 rounded-b-md border border-black/10 bg-[#E2CDCD]/7 px-3 py-2 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.35),inset_0_-1px_1px_rgba(0,0,0,0.15)] sm:gap-x-5">
+          <div
+            className="
+              flex
+              w-full
+              flex-wrap
+              items-center
+              gap-x-4
+              gap-y-1
+              rounded-b-md
+              border
+              border-black/10
+              bg-[#E2CDCD]/7
+              px-3
+              py-2
+              backdrop-blur-xl
+              shadow-[inset_0_1px_1px_rgba(255,255,255,0.35),inset_0_-1px_1px_rgba(0,0,0,0.15)]
+              sm:gap-x-5
+            "
+          >
             <Link
               href="#home"
               className="shrink-0 cursor-pointer text-sm font-semibold text-[#0050EE] transition-all duration-150 hover:scale-105 hover:text-[#0035a8] sm:text-base"
@@ -368,7 +427,24 @@ export default function Home() {
 
       <main
         id="home"
-        className="flex flex-1 flex-col gap-6 px-4 py-6 pb-20 sm:px-8 sm:py-8 md:px-12 lg:min-h-0 lg:px-24 lg:py-6 lg:pb-16 xl:px-60 2xl:px-60"
+        className="
+          flex
+          flex-1
+          flex-col
+          gap-6
+          px-4
+          py-6
+          pb-20
+          sm:px-8
+          sm:py-8
+          md:px-12
+          lg:min-h-0
+          lg:px-24
+          lg:py-6
+          lg:pb-16
+          xl:px-60
+          2xl:px-60
+        "
       >
         {/* =================================================
             TOP CONTENT
@@ -380,9 +456,25 @@ export default function Home() {
           ================================================= */}
 
           <div className="flex w-full flex-col gap-3 lg:w-[42%] lg:shrink-0">
-            {/* PROFILE */}
+            {/* =================================================
+                PROFILE
+            ================================================= */}
 
-            <div className="group flex flex-col rounded-md bg-[#175DE8]/35 shadow-[inset_0_3px_5px_-2px_#FFF] transition-all duration-300 hover:-translate-y-1 hover:shadow-[inset_0_3px_5px_-2px_#FFF,0_8px_20px_rgba(0,0,0,0.25)]">
+            <div
+              className="
+                xp-floating
+                group
+                flex
+                flex-col
+                rounded-md
+                bg-[#175DE8]/35
+                shadow-[0_4px_10px_rgba(0,0,0,0.28),inset_0_3px_5px_-2px_#FFF]
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-[0_8px_20px_rgba(0,0,0,0.3),inset_0_3px_5px_-2px_#FFF]
+              "
+            >
               <div className="flex w-full items-center justify-between gap-2 rounded-t-md px-2 py-2.5 text-white">
                 <p className="text-xs sm:text-sm">
                   Bouabdelli Maroua Amira&apos;s profile
@@ -403,10 +495,52 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex w-full flex-col items-center gap-5 rounded-md border border-[#001170]/56 bg-white/56 px-4 py-8 shadow-[0_0px_7px_0.1px_#000] transition-all duration-300 group-hover:bg-white/65 sm:flex-row sm:items-center sm:px-5 sm:py-8">
+              <div
+                className="
+                  flex
+                  w-full
+                  flex-col
+                  items-center
+                  gap-5
+                  rounded-md
+                  border
+                  border-[#001170]/56
+                  bg-white/56
+                  px-4
+                  py-8
+                  shadow-[0_2px_7px_rgba(0,0,0,0.35)]
+                  transition-all
+                  duration-300
+                  group-hover:bg-white/65
+                  sm:flex-row
+                  sm:items-center
+                  sm:px-5
+                  sm:py-8
+                "
+              >
                 {/* PROFILE IMAGE */}
-
-                <div className="relative h-[130px] w-[130px] shrink-0 overflow-hidden rounded-full ring-0 transition-all duration-300 group-hover:scale-[1.03] group-hover:ring-4 group-hover:ring-[#3076FF]/30 sm:h-[150px] sm:w-[150px] lg:h-[145px] lg:w-[145px] xl:h-[169px] xl:w-[172px]">
+                <div
+                  className="
+                    relative
+                    h-[130px]
+                    w-[130px]
+                    shrink-0
+                    overflow-hidden
+                    rounded-full
+                    ring-0
+                    transition-all
+                    duration-300
+                    group-hover:scale-[1.03]
+                    group-hover:ring-4
+                    group-hover:ring-[#3076FF]/30
+                    sm:h-[150px]
+                    sm:w-[150px]
+                    lg:h-[145px]
+                    lg:w-[145px]
+                    xl:h-[169px]
+                    xl:w-[172px]
+                  "
+                >
                   <Image
                     src="/images/moi.png"
                     alt=""
@@ -416,7 +550,6 @@ export default function Home() {
                 </div>
 
                 {/* PROFILE TEXT */}
-
                 <div className="flex min-w-0 flex-col gap-2 text-center sm:text-left">
                   <p className="text-sm font-extrabold text-[#1E1E1E]">
                     &quot;hello !&quot;
@@ -433,12 +566,37 @@ export default function Home() {
                 MOOD
             ================================================= */}
 
-            <div className="flex flex-col rounded-md bg-[#175DE8]/87 shadow-[inset_0_3px_5px_-2px_#FFF] transition-all duration-300 hover:-translate-y-1 hover:shadow-[inset_0_3px_5px_-2px_#FFF,0_8px_20px_rgba(0,0,0,0.2)]">
+            <div
+              className="
+                xp-floating
+                flex
+                flex-col
+                rounded-md
+                bg-[#175DE8]/87
+                shadow-[0_4px_10px_rgba(0,0,0,0.28),inset_0_3px_5px_-2px_#FFF]
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-[0_8px_20px_rgba(0,0,0,0.28),inset_0_3px_5px_-2px_#FFF]
+              "
+            >
               <div className="w-full rounded-t-md px-2 py-2.5 text-white">
                 <p className="text-sm font-hind">Mood</p>
               </div>
 
-              <div className="rounded-md border border-[#001170]/56 bg-white/63 px-4 py-5 font-hind shadow-[0_0px_7px_0.1px_#000] sm:py-6">
+              <div
+                className="
+                  rounded-md
+                  border
+                  border-[#001170]/56
+                  bg-white/63
+                  px-4
+                  py-5
+                  font-hind
+                  shadow-[0_2px_7px_rgba(0,0,0,0.35)]
+                  sm:py-6
+                "
+              >
                 <div className="flex flex-wrap gap-2 text-sm font-extrabold text-[#1E1E1E]">
                   <span>Mood :</span>
 
@@ -453,7 +611,20 @@ export default function Home() {
                 PROFILE VISITORS
             ================================================= */}
 
-            <div className="flex flex-col rounded-md bg-[#175DE8]/87 shadow-[inset_0_3px_5px_-2px_#FFF] transition-all duration-300 hover:-translate-y-1 hover:shadow-[inset_0_3px_5px_-2px_#FFF,0_8px_20px_rgba(0,0,0,0.2)]">
+            <div
+              className="
+                xp-floating
+                flex
+                flex-col
+                rounded-md
+                bg-[#175DE8]/87
+                shadow-[0_4px_10px_rgba(0,0,0,0.28),inset_0_3px_5px_-2px_#FFF]
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-[0_8px_20px_rgba(0,0,0,0.28),inset_0_3px_5px_-2px_#FFF]
+              "
+            >
               <div className="flex items-center justify-between rounded-t-md px-2 py-2.5 text-white">
                 <p className="text-sm font-hind">Profile Visitors</p>
 
@@ -462,7 +633,21 @@ export default function Home() {
                 </span>
               </div>
 
-              <div className="flex items-center justify-between rounded-md border border-[#001170]/56 bg-white/63 px-4 py-4 font-hind shadow-[0_0px_7px_0.1px_#000]">
+              <div
+                className="
+                  flex
+                  items-center
+                  justify-between
+                  rounded-md
+                  border
+                  border-[#001170]/56
+                  bg-white/63
+                  px-4
+                  py-4
+                  font-hind
+                  shadow-[0_2px_7px_rgba(0,0,0,0.35)]
+                "
+              >
                 <div className="flex items-center gap-2">
                   <Image
                     src="/icons/users.png"
@@ -490,9 +675,25 @@ export default function Home() {
               DESKTOP ICONS
           ================================================= */}
 
-          <div className="flex w-full flex-row items-start justify-center gap-6 sm:gap-10 lg:mt-20 lg:w-[115px] lg:shrink-0 lg:flex-col lg:items-center lg:gap-2 xl:mt-26">
+          <div
+            className="
+              flex
+              w-full
+              flex-row
+              items-start
+              justify-center
+              gap-6
+              sm:gap-10
+              lg:mt-20
+              lg:w-[115px]
+              lg:shrink-0
+              lg:flex-col
+              lg:items-center
+              lg:gap-2
+              xl:mt-26
+            "
+          >
             {/* RESUME */}
-
             <button
               type="button"
               onClick={() => setResumeOpen(true)}
@@ -512,7 +713,6 @@ export default function Home() {
             </button>
 
             {/* PROJECT */}
-
             <button
               type="button"
               onClick={() => setProjectsOpen(true)}
@@ -532,7 +732,6 @@ export default function Home() {
             </button>
 
             {/* EMAIL */}
-
             <button
               type="button"
               onClick={() => setContactOpen(true)}
@@ -557,7 +756,9 @@ export default function Home() {
           ================================================= */}
 
           <div className="flex w-full flex-col gap-6 lg:min-h-0 lg:flex-1 lg:items-end lg:justify-between">
-            {/* NEW NOTE */}
+            {/* =================================================
+                NEW NOTE
+            ================================================= */}
 
             <div className="flex w-full flex-col transition-all duration-300 hover:-translate-y-1 hover:rotate-[0.5deg] sm:w-80">
               <div className="grid grid-cols-3 items-center bg-[#F2F29F] p-1 px-2 shadow-sm">
@@ -604,12 +805,40 @@ export default function Home() {
                 CONTACT CARD
             ================================================= */}
 
-            <div className="flex w-full flex-col rounded-md bg-[#175DE8]/87 shadow-[inset_0_3px_5px_-2px_#FFF] transition-all duration-300 hover:-translate-y-1 hover:shadow-[inset_0_3px_5px_-2px_#FFF,0_8px_20px_rgba(0,0,0,0.25)] sm:w-80">
+            <div
+              className="
+                xp-floating
+                flex
+                w-full
+                flex-col
+                rounded-md
+                bg-[#175DE8]/87
+                shadow-[0_4px_10px_rgba(0,0,0,0.28),inset_0_3px_5px_-2px_#FFF]
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-[0_8px_20px_rgba(0,0,0,0.3),inset_0_3px_5px_-2px_#FFF]
+                sm:w-80
+              "
+            >
               <div className="w-full rounded-t-md px-2 py-2.5 text-white">
                 <p className="text-sm">Contact Me</p>
               </div>
 
-              <div className="flex flex-col gap-5 rounded-md border border-[#001170]/56 bg-white/63 px-4 py-7 shadow-[0_0px_7px_0.1px_#000]">
+              <div
+                className="
+                  flex
+                  flex-col
+                  gap-5
+                  rounded-md
+                  border
+                  border-[#001170]/56
+                  bg-white/63
+                  px-4
+                  py-7
+                  shadow-[0_2px_7px_rgba(0,0,0,0.35)]
+                "
+              >
                 <p className="text-sm font-hind text-[#1E1E1E]">
                   Want to talk about a project, internship or collaboration?
                 </p>
@@ -617,7 +846,28 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={() => setContactOpen(true)}
-                  className="flex w-fit max-w-full cursor-pointer items-center gap-2 rounded-md bg-[#3076FF] px-4 py-2 text-sm font-medium text-white shadow-[inset_0_0_4px_#FFF] transition-all duration-200 hover:translate-y-[-2px] hover:bg-[#004adbe4] hover:shadow-[inset_0_0_4px_#FFF,0_4px_10px_rgba(0,0,0,0.2)] active:translate-y-[1px]"
+                  className="
+                    flex
+                    w-fit
+                    max-w-full
+                    cursor-pointer
+                    items-center
+                    gap-2
+                    rounded-md
+                    bg-[#3076FF]
+                    px-4
+                    py-2
+                    text-sm
+                    font-medium
+                    text-white
+                    shadow-[inset_0_0_4px_#FFF]
+                    transition-all
+                    duration-200
+                    hover:translate-y-[-2px]
+                    hover:bg-[#004adbe4]
+                    hover:shadow-[inset_0_0_4px_#FFF,0_4px_10px_rgba(0,0,0,0.2)]
+                    active:translate-y-[1px]
+                  "
                 >
                   <Image
                     src="/icons/comment.png"
@@ -669,9 +919,7 @@ export default function Home() {
             }
           }}
         >
-          {/* =================================================
-              GLASS CONTAINER
-          ================================================= */}
+          {/* GLASS CONTAINER */}
 
           <div
             className="
@@ -689,23 +937,13 @@ export default function Home() {
             "
             onMouseDown={(event) => event.stopPropagation()}
           >
-            {/* =================================================
-                CAROUSEL VIEWPORT
-            ================================================= */}
+            {/* CAROUSEL VIEWPORT */}
 
             <div className="group relative w-full overflow-hidden rounded-xl">
-              {/* =================================================
-                  CAROUSEL TRACK
-
-                  Two identical groups are placed next to each
-                  other. The animation moves exactly 50%, which
-                  creates the seamless infinite loop.
-              ================================================= */}
+              {/* CAROUSEL TRACK */}
 
               <div className="start-carousel flex w-max">
-                {/* =================================================
-                    FIRST GROUP
-                ================================================= */}
+                {/* FIRST GROUP */}
 
                 <div className="flex shrink-0 gap-4 pr-4">
                   {windows.map((window) => (
@@ -716,9 +954,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* =================================================
-                    SECOND DUPLICATED GROUP
-                ================================================= */}
+                {/* SECOND DUPLICATED GROUP */}
 
                 <div className="flex shrink-0 gap-4 pr-4">
                   {windows.map((window) => (

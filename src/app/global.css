@@ -97,3 +97,24 @@ body:before {
 .start-carousel:hover {
   animation-play-state: paused;
 }
+/* Floating XP-style card depth */
+.xp-floating {
+  position: relative;
+  z-index: 1;
+}
+
+.xp-floating::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: inherit;
+
+  transform: translate(9px, 4px);
+}
