@@ -236,6 +236,43 @@ const projects: Project[] = [
     live: "https://space-tour-website.vercel.app/",
     accent: "softBlue",
   },
+
+  // =========================================================
+  // CROCHET UI/UX PROJECT
+  // =========================================================
+
+  {
+    number: "08",
+    title: "Crochet House",
+    category: "UI/UX E-Commerce Concept",
+    role: "UI/UX Design",
+    description:
+      "A cozy e-commerce UI/UX concept designed specifically for crochet businesses. The idea came from seeing more and more girlies running their own crochet businesses and imagining a website that feels like stepping into a granny's house, surrounded by handmade pieces, yarn and little details.",
+    contribution: [
+      "UI/UX design",
+      "Visual identity",
+      "E-commerce experience",
+      "Navigation design",
+      "User flow design",
+      "Responsive interface",
+      "Animation concepts",
+    ],
+    technologies: [
+      "Figma",
+      "UI/UX Design",
+      "Prototyping",
+      "E-Commerce",
+    ],
+    images: [
+      "/projects/crochet/home.png",
+      "/projects/crochet/shop.png",
+      "/projects/crochet/product.png",
+      "/projects/crochet/custom-order.png",
+      "/projects/crochet/cart.png",
+      "/projects/crochet/checkout.png",
+    ],
+    accent: "lavender",
+  },
 ];
 
 const accentStyles = {
@@ -404,7 +441,7 @@ function ProjectGallery({
 
   return (
     <div className="px-3 sm:px-4">
-      {/* Main screenshot */}
+      {/* MAIN SCREENSHOT */}
       <div
         className="
           relative
@@ -434,7 +471,7 @@ function ProjectGallery({
             priority={selectedIndex === 0}
           />
 
-          {/* Counter */}
+          {/* COUNTER */}
           <div
             className="
               absolute
@@ -455,7 +492,7 @@ function ProjectGallery({
             {selectedIndex + 1} / {images.length}
           </div>
 
-          {/* Previous */}
+          {/* PREVIOUS */}
           {images.length > 1 && (
             <button
               type="button"
@@ -487,7 +524,7 @@ function ProjectGallery({
             </button>
           )}
 
-          {/* Next */}
+          {/* NEXT */}
           {images.length > 1 && (
             <button
               type="button"
@@ -521,7 +558,7 @@ function ProjectGallery({
         </div>
       </div>
 
-      {/* Thumbnails */}
+      {/* THUMBNAILS */}
       {images.length > 1 && (
         <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
           {images.map((image, index) => (
@@ -662,6 +699,8 @@ function VideoPlayer({ video }: { video: string }) {
 function ProjectCard({ project }: { project: Project }) {
   const styles = accentStyles[project.accent];
 
+  const isCrochetProject = project.title === "Crochet House";
+
   return (
     <article
       className={`
@@ -674,7 +713,7 @@ function ProjectCard({ project }: { project: Project }) {
         shadow-[2px_2px_5px_rgba(0,0,0,0.12)]
       `}
     >
-      {/* Project heading */}
+      {/* PROJECT HEADING */}
       <div className="flex items-start justify-between gap-3 px-3 pb-2 pt-3 sm:px-4">
         <div className="min-w-0">
           <div
@@ -723,7 +762,31 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
 
-      {/* Screenshots */}
+      {/* =====================================================
+          CROCHET PROJECT SPECIAL INTRO
+          ===================================================== */}
+
+      {isCrochetProject && (
+        <div className="mx-3 mb-3 rounded-[5px] border border-[#c9bddf] bg-white/65 p-3 sm:mx-4">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-[#7659a5]">
+            A little design experiment 🧶
+          </div>
+
+          <p className="mt-2 text-xs leading-relaxed text-[#555]">
+            Lately, I&apos;ve been coming across a lot of girlies running
+            their own crochet businesses, and it made me think: why not
+            create a website designed specifically for crocheting?
+          </p>
+
+          <p className="mt-2 text-xs leading-relaxed text-[#555]">
+            I wanted the website to feel creative and cozy — almost like
+            stepping into a granny&apos;s house, surrounded by crochet,
+            handmade pieces, yarn and little details. 🧶🧺🌷
+          </p>
+        </div>
+      )}
+
+      {/* SCREENSHOTS */}
       {project.images && project.images.length > 0 && (
         <ProjectGallery
           images={project.images}
@@ -732,12 +795,12 @@ function ProjectCard({ project }: { project: Project }) {
         />
       )}
 
-      {/* Video */}
+      {/* VIDEO */}
       {project.video && <VideoPlayer video={project.video} />}
 
-      {/* Project information */}
+      {/* PROJECT INFORMATION */}
       <div className="px-3 pb-4 pt-3 sm:px-4">
-        {/* Role + description */}
+        {/* ROLE + DESCRIPTION */}
         <div className="rounded-[4px] border border-black/10 bg-white/70 p-3">
           <div className={`text-xs font-bold ${styles.title}`}>
             {project.role}
@@ -748,7 +811,56 @@ function ProjectCard({ project }: { project: Project }) {
           </p>
         </div>
 
-        {/* What I did */}
+        {/* CROCHET DESIGN STORY */}
+        {isCrochetProject && (
+          <div className="mt-3 rounded-[4px] border border-[#c9bddf] bg-[#f8f5fc] p-3">
+            <div
+              className={`
+                mb-2
+                text-[10px]
+                font-bold
+                uppercase
+                tracking-wide
+                ${styles.title}
+              `}
+            >
+              Design process
+            </div>
+
+            <div className="space-y-2 text-xs leading-relaxed text-[#555]">
+              <p>
+                I didn&apos;t want the design to be just pretty. I focused on
+                keeping the structure clear, the navigation intuitive, and
+                the overall experience aligned with UX principles.
+              </p>
+
+              <p>
+                And because I&apos;m kind of an{" "}
+                <span className="font-bold text-[#7659a5]">
+                  animationholic lol
+                </span>
+                , I couldn&apos;t design each section without already
+                imagining how it would move and come to life. 👀✨
+              </p>
+
+              <p>
+                While designing, I was already picturing the animations,
+                transitions and little interactions I&apos;d add to the final
+                website. Which honestly makes me even more excited to see the
+                whole thing animated.
+              </p>
+
+              <p>
+                I&apos;m still at the beginning of my UI/UX journey, so this
+                project was a fun way to experiment with visual identity while
+                also thinking about how an actual e-commerce experience should
+                work.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* WHAT I DID */}
         <div className="mt-3">
           <div
             className={`
@@ -769,12 +881,12 @@ function ProjectCard({ project }: { project: Project }) {
           />
         </div>
 
-        {/* Automation flow */}
+        {/* AUTOMATION FLOW */}
         {project.title === "Invoice Data Extraction Automation" && (
           <AutomationFlow />
         )}
 
-        {/* Technologies */}
+        {/* TECHNOLOGIES */}
         <div className="mt-3">
           <div
             className={`
@@ -800,7 +912,7 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         </div>
 
-        {/* Links */}
+        {/* LINKS */}
         {(project.github || project.live) && (
           <div className="mt-3 flex flex-wrap gap-2">
             {project.github && (
@@ -814,6 +926,14 @@ function ProjectCard({ project }: { project: Project }) {
                 Visit website
               </XPButton>
             )}
+          </div>
+        )}
+
+        {/* FIGMA NOTE FOR CROCHET */}
+        {isCrochetProject && (
+          <div className="mt-3 flex items-center gap-2 rounded-[4px] border border-[#c9bddf] bg-white/70 px-3 py-2 text-[11px] text-[#666]">
+            <span className="font-bold text-[#7659a5]">✦</span>
+            <span>Designed in Figma 🎨</span>
           </div>
         )}
       </div>
@@ -871,7 +991,10 @@ export default function ProjectsDialog({
           shadow-[4px_5px_12px_rgba(0,0,0,0.45)]
         "
       >
-        {/* XP TITLE BAR */}
+        {/* =====================================================
+            XP TITLE BAR
+            ===================================================== */}
+
         <div
           className="
             flex
@@ -922,7 +1045,7 @@ export default function ProjectsDialog({
           </div>
 
           <div className="flex shrink-0 items-center gap-1">
-            {/* Minimize */}
+            {/* MINIMIZE */}
             <button
               type="button"
               onClick={onClose}
@@ -948,7 +1071,7 @@ export default function ProjectsDialog({
               −
             </button>
 
-            {/* Close */}
+            {/* CLOSE */}
             <button
               type="button"
               onClick={onClose}
@@ -976,7 +1099,10 @@ export default function ProjectsDialog({
           </div>
         </div>
 
-        {/* XP MENU BAR */}
+        {/* =====================================================
+            XP MENU BAR
+            ===================================================== */}
+
         <div
           className="
             flex
@@ -1021,7 +1147,10 @@ export default function ProjectsDialog({
           </button>
         </div>
 
-        {/* CONTENT */}
+        {/* =====================================================
+            CONTENT
+            ===================================================== */}
+
         <div
           ref={contentRef}
           className="
@@ -1035,6 +1164,7 @@ export default function ProjectsDialog({
           "
         >
           {/* INTRO */}
+
           <div
             className="
               mb-4
@@ -1063,19 +1193,24 @@ export default function ProjectsDialog({
             </h1>
 
             <p className="mt-1 text-xs leading-relaxed text-[#555]">
-              Websites, applications, automations and creative work that I
-              have designed and developed.
+              Websites, applications, automations, UI/UX concepts and
+              creative work that I have designed and developed.
             </p>
           </div>
 
           {/* PROJECTS */}
+
           <div className="grid grid-cols-1 gap-4">
             {projects.map((project) => (
-              <ProjectCard key={project.number} project={project} />
+              <ProjectCard
+                key={project.number}
+                project={project}
+              />
             ))}
           </div>
 
-          {/* Bottom note */}
+          {/* BOTTOM NOTE */}
+
           <div
             className="
               mt-4
